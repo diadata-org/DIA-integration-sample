@@ -58,7 +58,7 @@ uint128 public timestampOflatestPrice;
 ```
 
 To retreive the price and timestamp from the oracle we create a function that calls the
-oracle using the importet interface and the oracle address.
+oracle using the IDIAOracleV2 interface and the oracle address.
 
 ```
 function getPriceInfo(string memory key) external {
@@ -67,7 +67,7 @@ function getPriceInfo(string memory key) external {
 ```
 
 When using an oracle it is important to know if the price has been updated recently. In the sample
-contract we create function that answers that questions. It takes an input ```maxTimePassed``` 
+contract we create function that answers that questions. The function ```checkPriceAge``` takes an input ```maxTimePassed``` 
 representing our limit on how old the price can be and returns a boolian that will be true
 if the time since the price was last updates is ```< maxTimePassed``` and false otherwise.
 
